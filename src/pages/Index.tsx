@@ -126,6 +126,25 @@ export default function Index() {
         </div>
       </header>
 
+      {/* Cover */}
+      <section className="px-6 md:px-16 pt-10 pb-0">
+        <div className="max-w-3xl mx-auto">
+          <div className="relative overflow-hidden rounded-sm border border-stone-100 bg-stone-50" style={{ height: '320px' }}>
+            <img
+              src="https://cdn.poehali.dev/projects/f94ff583-a233-4cc8-8b1c-42e4becbc0df/files/7db0b20f-8db6-4e6e-b8b5-edde02e1c820.jpg"
+              alt="Техники снижения тревоги"
+              className="w-full h-full object-cover object-center opacity-80 mix-blend-multiply"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent" />
+            <div className="absolute bottom-6 left-7">
+              <p className="font-display text-stone-400 text-sm italic">
+                первая помощь при тревоге
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Intro */}
       <section className="px-6 md:px-16 py-10 border-b border-stone-100">
         <div className="max-w-3xl mx-auto">
