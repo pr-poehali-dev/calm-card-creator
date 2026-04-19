@@ -240,11 +240,18 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="border-t border-stone-100 px-6 md:px-16 py-8 mt-8">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-stone-300 leading-relaxed">
+        <div className="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap">
+          <p className="text-xs text-stone-300 leading-relaxed max-w-sm">
             Эти техники — первая помощь при тревоге. Они не заменяют работу со
             специалистом при хронической тревоге или тревожном расстройстве.
           </p>
+          <button
+            onClick={() => navigate("/booklet")}
+            className="flex items-center gap-2 text-xs text-stone-400 hover:text-stone-700 border border-stone-200 hover:border-stone-400 px-3 py-2 rounded-sm transition-all duration-150 shrink-0"
+          >
+            <Icon name="FileText" size={12} />
+            Буклет для печати
+          </button>
         </div>
       </footer>
     </div>
