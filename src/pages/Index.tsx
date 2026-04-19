@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const techniques = [
@@ -101,6 +102,7 @@ const techniques = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const [openId, setOpenId] = useState<number | null>(null);
 
   const toggle = (id: number) => {
@@ -120,8 +122,15 @@ export default function Index() {
               Острая тревога
             </h1>
           </div>
-          <div className="text-right hidden sm:block">
-            <p className="text-xs text-stone-400">{techniques.length} техник</p>
+          <div className="flex items-center gap-4">
+            <p className="text-xs text-stone-400 hidden sm:block">{techniques.length} техник</p>
+            <button
+              onClick={() => navigate("/quiz")}
+              className="flex items-center gap-2 text-xs border border-stone-300 text-stone-600 hover:border-stone-900 hover:text-stone-900 transition-all duration-150 px-3 py-2 rounded-sm"
+            >
+              <Icon name="ClipboardList" size={12} />
+              Не знаю с чего начать
+            </button>
           </div>
         </div>
       </header>
