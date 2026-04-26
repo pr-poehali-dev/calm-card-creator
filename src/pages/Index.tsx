@@ -156,12 +156,19 @@ export default function Index() {
 
       {/* Intro */}
       <section className="px-6 md:px-16 py-10 border-b border-stone-100">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto flex items-start justify-between gap-6 flex-wrap">
           <p className="text-stone-500 text-base leading-relaxed max-w-xl">
             Когда тревога нарастает — тело переходит в режим угрозы. Эти
             техники работают с физиологией напрямую: они переключают нервную
             систему и возвращают контроль.
           </p>
+          <button
+            onClick={() => navigate("/booklet")}
+            className="flex items-center gap-2 text-sm bg-stone-900 text-white px-5 py-2.5 rounded-sm hover:bg-stone-700 transition-colors shrink-0"
+          >
+            <Icon name="BookOpen" size={14} />
+            Открыть буклет для печати
+          </button>
         </div>
       </section>
 
