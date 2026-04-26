@@ -197,13 +197,8 @@ export default function Booklet() {
             <p className="text-xs text-stone-300 leading-relaxed">
               Эти техники — первая помощь при тревоге. Они не заменяют работу со специалистом при хронической тревоге или тревожном расстройстве.
             </p>
-            <div className="flex items-center justify-between mt-3">
-              <p className="text-xs text-stone-200 tracking-widest uppercase">Острая тревога</p>
-              <div className="flex gap-1">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-stone-200" />
-                ))}
-              </div>
+            <div className="flex items-center justify-between mt-4">
+              <p className="text-xs text-stone-400 italic">Зуева Дарья · Великий Новгород · 2026</p>
             </div>
           </div>
 
