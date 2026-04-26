@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Снижение тревожности у подростков — Буклет для печати</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8e5e0;
+    }
+
+    /* ── Навбар (только экран) ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-hint { font-size: 11px; color: #aaa; }
+    .btn-print {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-print:hover { background: #333; }
+
+    /* ── Сетка ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 105mm 105mm;
+      max-width: 210mm;
+      margin: 32px auto;
+      background: #fff;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+    }
+
+    /* ── Каждая мини-страница ── */
+    .page {
+      width: 105mm;
+      height: 148mm;
+      overflow: hidden;
+      padding: 22px;
+      border: 0.5mm dashed #b0b0b0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .page-label {
+      font-size: 7px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, .serif { font-family: 'Playfair Display', serif; }
+
+    /* ── Обложка ── */
+    .cover {
+      background: #111 !important;
+      justify-content: space-between;
+    }
+    .cover .page-label { color: #555; }
+    .cover-line { width: 34px; height: 2px; background: #c9a84c; margin-bottom: 16px; }
+    .cover-tag {
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 10px;
+    }
+    .cover h1 {
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+    .cover-desc { color: #666; font-size: 9.5px; line-height: 1.65; }
+    .cover-footer { }
+    .cover-hr { width: 100%; height: 1px; background: #2a2a2a; margin-bottom: 12px; }
+    .cover-author { color: #888; font-size: 9px; margin-bottom: 3px; }
+    .cover-city { color: #555; font-size: 8.5px; }
+
+    /* ── Оглавление ── */
+    .toc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #111;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #111;
+      margin-bottom: 16px;
+    }
+    .toc-list { flex: 1; display: flex; flex-direction: column; gap: 7px; }
+    .toc-row { display: flex; align-items: baseline; gap: 4px; }
+    .toc-num { font-size: 8px; color: #bbb; min-width: 16px; font-weight: 600; }
+    .toc-dots { flex: 1; border-bottom: 1px dotted #ddd; margin: 0 4px; position: relative; top: -2px; }
+    .toc-title-text { font-size: 9px; color: #333; }
+    .toc-note { font-size: 7.5px; color: #ccc; margin-top: 14px; line-height: 1.55; }
+
+    /* ── Страница "Тревожиться нормально" ── */
+    .info-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: #111;
+      line-height: 1.3;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #111;
+      margin-bottom: 14px;
+    }
+    .info-body { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .info-p { font-size: 10px; color: #444; line-height: 1.7; }
+    .info-quote {
+      background: #faf9f5;
+      border-left: 3px solid #c9a84c;
+      padding: 9px 11px;
+    }
+    .info-quote p { font-size: 9.5px; color: #555; line-height: 1.65; font-style: italic; }
+
+    /* ── Опросник ── */
+    .quiz-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: #111;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #111;
+      margin-bottom: 6px;
+    }
+    .quiz-hint { font-size: 8.5px; color: #999; margin-bottom: 11px; line-height: 1.5; }
+    .quiz-body { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .quiz-block { border-left: 2px solid #e5e5e5; padding-left: 9px; }
+    .quiz-block-label {
+      font-size: 7.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 8px; }
+    .quiz-option { display: flex; align-items: flex-start; gap: 5px; }
+    .quiz-circle {
+      width: 11px; height: 11px; border-radius: 50%;
+      border: 1px solid #ccc; flex-shrink: 0; margin-top: 1px;
+    }
+    .quiz-option-text { font-size: 8px; color: #555; line-height: 1.4; }
+    .quiz-option-letter { color: #bbb; font-weight: 600; }
+    .quiz-footer { font-size: 7.5px; color: #ccc; margin-top: 10px; }
+
+    /* ── Результат ── */
+    .result-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #111;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #111;
+      margin-bottom: 14px;
+    }
+    .result-hint { font-size: 9px; color: #888; margin-bottom: 13px; line-height: 1.5; }
+    .result-body { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .result-card { border: 1px solid #ebebeb; overflow: hidden; }
+    .result-card-head {
+      background: #f8f8f6;
+      border-bottom: 1px solid #ebebeb;
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .result-range { font-size: 7.5px; color: #aaa; }
+    .result-level { font-family: 'Playfair Display', serif; font-size: 12px; color: #111; }
+    .result-card-body { padding: 5px 10px; }
+    .result-desc { font-size: 8px; color: #888; margin-bottom: 3px; }
+    .result-row { display: flex; justify-content: space-between; align-items: center; }
+    .result-tech { font-size: 9.5px; color: #222; font-weight: 500; }
+    .result-page { font-size: 8px; color: #bbb; }
+    .result-footer { font-size: 7.5px; color: #ccc; margin-top: 12px; line-height: 1.5; }
+
+    /* ── Техники ── */
+    .tech-header { margin-bottom: 12px; padding-bottom: 9px; border-bottom: 2px solid #111; }
+    .tech-tagline {
+      font-size: 7.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 4px;
+    }
+    .tech-title { font-family: 'Playfair Display', serif; font-size: 19px; color: #111; line-height: 1.2; }
+    .tech-desc { font-size: 9.5px; color: #666; line-height: 1.65; margin-bottom: 12px; }
+    .steps-label {
+      font-size: 7.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .step { display: flex; gap: 8px; align-items: flex-start; }
+    .step-num {
+      min-width: 18px; height: 18px; border-radius: 50%;
+      background: #111; color: #fff; font-size: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; flex-shrink: 0;
+    }
+    .step-text { font-size: 9.5px; color: #333; line-height: 1.6; padding-top: 2px; }
+    .tech-footer {
+      margin-top: 12px;
+      border-top: 1px solid #efefef;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .tech-footer span { font-size: 7.5px; color: #ccc; }
+
+    /* ── Печать ── */
+    @media print {
+      body { background: #fff; }
+      .navbar { display: none !important; }
+      .grid {
+        margin: 0;
+        max-width: none;
+        width: 210mm;
+        box-shadow: none;
+      }
+      .page {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .cover { background: #111 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Навбар -->
+  <div class="navbar">
+    <span class="navbar-hint">✂ Вырежьте карточки по пунктирной линии после печати</span>
+    <button class="btn-print" onclick="window.print()">
+      🖨 Распечатать
+    </button>
+  </div>
+
+  <!-- Сетка карточек -->
+  <div class="grid">
+
+    <!-- ══ СТРАНИЦА 1 — Обложка ══ -->
+    <div class="page cover">
+      <div>
+        <p class="page-label">Страница 1 из 11</p>
+        <div class="cover-line"></div>
+        <p class="cover-tag">Острая тревога</p>
+        <h1>Снижение тревожности у подростков за счёт эффективных практик</h1>
+        <p class="cover-desc">Практическое пособие с опросником, техниками самопомощи и рекомендациями</p>
+      </div>
+      <div class="cover-footer">
+        <div class="cover-hr"></div>
+        <p class="cover-author">Зуева Дарья</p>
+        <p class="cover-city">Великий Новгород · 2026</p>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 2 — Оглавление ══ -->
+    <div class="page">
+      <p class="page-label">Страница 2 из 11</p>
+      <div class="toc-title">Оглавление</div>
+      <div class="toc-list">
+        <div class="toc-row"><span class="toc-num">1</span><div class="toc-dots"></div><span class="toc-title-text">Обложка</span></div>
+        <div class="toc-row"><span class="toc-num">2</span><div class="toc-dots"></div><span class="toc-title-text">Оглавление</span></div>
+        <div class="toc-row"><span class="toc-num">3</span><div class="toc-dots"></div><span class="toc-title-text">Тревожиться — это нормально</span></div>
+        <div class="toc-row"><span class="toc-num">4</span><div class="toc-dots"></div><span class="toc-title-text">Опросник «Как вы себя чувствуете?»</span></div>
+        <div class="toc-row"><span class="toc-num">5</span><div class="toc-dots"></div><span class="toc-title-text">Результат опросника</span></div>
+        <div class="toc-row"><span class="toc-num">6</span><div class="toc-dots"></div><span class="toc-title-text">Техника 01: Дыхание 4-7-8</span></div>
+        <div class="toc-row"><span class="toc-num">7</span><div class="toc-dots"></div><span class="toc-title-text">Техника 02: Метод 5-4-3-2-1</span></div>
+        <div class="toc-row"><span class="toc-num">8</span><div class="toc-dots"></div><span class="toc-title-text">Техника 03: Диафрагмальное дыхание</span></div>
+        <div class="toc-row"><span class="toc-num">9</span><div class="toc-dots"></div><span class="toc-title-text">Техника 04: Прогрессивная релаксация</span></div>
+        <div class="toc-row"><span class="toc-num">10</span><div class="toc-dots"></div><span class="toc-title-text">Техника 05: Холодная вода</span></div>
+        <div class="toc-row"><span class="toc-num">11</span><div class="toc-dots"></div><span class="toc-title-text">Техника 06: Письмо тревоге</span></div>
+      </div>
+      <p class="toc-note">✂ После печати вырежьте карточки и сложите по порядку.</p>
+    </div>
+
+    <!-- ══ СТРАНИЦА 3 — Тревожиться нормально ══ -->
+    <div class="page">
+      <p class="page-label">Страница 3 из 11</p>
+      <div class="info-title">Тревожиться —<br>это нормально</div>
+      <div class="info-body">
+        <p class="info-p">Тревога — это не слабость и не болезнь. Это природный механизм защиты, который помогал людям выживать тысячи лет.</p>
+        <p class="info-p">Когда ты тревожишься, мозг посылает сигнал опасности — тело готовится действовать. Сердце бьётся чаще, мышцы напрягаются. Это просто реакция, не катастрофа.</p>
+        <div class="info-quote">
+          <p>Проблема не в тревоге, а в том, что она мешает жить. Техники этой книжки помогут снизить её до комфортного уровня.</p>
+        </div>
+        <p class="info-p">По данным ВОЗ, каждый четвёртый подросток переживает тревогу регулярно. Ты не один — и это можно изменить.</p>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 4 — Опросник ══ -->
+    <div class="page">
+      <p class="page-label">Страница 4 из 11 · Опросник</p>
+      <div class="quiz-title">Как вы себя чувствуете?</div>
+      <p class="quiz-hint">Обведите один ответ в каждом блоке — ближайший к вашему состоянию прямо сейчас.</p>
+      <div class="quiz-body">
+
+        <div class="quiz-block">
+          <p class="quiz-block-label">Тело</p>
+          <div class="quiz-options">
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">А. </span>Всё спокойно, мышцы расслаблены</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Б. </span>Лёгкое напряжение в плечах или животе</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">В. </span>Учащённый пульс или поверхностное дыхание</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Г. </span>Сильное сердцебиение, дрожь, ком в горле</p></div>
+          </div>
+        </div>
+
+        <div class="quiz-block">
+          <p class="quiz-block-label">Мысли</p>
+          <div class="quiz-options">
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">А. </span>Ясно, легко сосредоточиться</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Б. </span>Немного рассеян, отвлекаюсь</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">В. </span>Мысли скачут, трудно остановиться</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Г. </span>Хаос, тревожные мысли не прекращаются</p></div>
+          </div>
+        </div>
+
+        <div class="quiz-block">
+          <p class="quiz-block-label">Эмоции</p>
+          <div class="quiz-options">
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">А. </span>Спокойствие или нейтральность</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Б. </span>Лёгкое беспокойство или раздражение</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">В. </span>Выраженная тревога, напряжение</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Г. </span>Страх, паника, потеря контроля</p></div>
+          </div>
+        </div>
+
+        <div class="quiz-block">
+          <p class="quiz-block-label">Контакт с реальностью</p>
+          <div class="quiz-options">
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">А. </span>Полностью в моменте</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Б. </span>Мысли немного уходят</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">В. </span>Трудно сфокусироваться</p></div>
+            <div class="quiz-option"><div class="quiz-circle"></div><p class="quiz-option-text"><span class="quiz-option-letter">Г. </span>Ощущение нереальности, отстранённости</p></div>
+          </div>
+        </div>
+
+      </div>
+      <p class="quiz-footer">→ Результат на стр. 5</p>
+    </div>
+
+    <!-- ══ СТРАНИЦА 5 — Результат ══ -->
+    <div class="page">
+      <p class="page-label">Страница 5 из 11 · Результат</p>
+      <div class="result-title">Ваш результат</div>
+      <p class="result-hint">Найдите свой вариант и перейдите к рекомендованной технике.</p>
+      <div class="result-body">
+
+        <div class="result-card">
+          <div class="result-card-head">
+            <span class="result-range">Все ответы А</span>
+            <span class="result-level">Спокойно</span>
+          </div>
+          <div class="result-card-body">
+            <p class="result-desc">Вы в ресурсном состоянии.</p>
+            <div class="result-row">
+              <span class="result-tech">→ Диафрагмальное дыхание</span>
+              <span class="result-page">стр. 8</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-head">
+            <span class="result-range">Преимущественно Б</span>
+            <span class="result-level">Лёгкое напряжение</span>
+          </div>
+          <div class="result-card-body">
+            <p class="result-desc">Есть фоновое беспокойство.</p>
+            <div class="result-row">
+              <span class="result-tech">→ Метод 5-4-3-2-1</span>
+              <span class="result-page">стр. 7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-head">
+            <span class="result-range">Преимущественно В</span>
+            <span class="result-level">Выраженная тревога</span>
+          </div>
+          <div class="result-card-body">
+            <p class="result-desc">Тревога ощутима, тело напряжено.</p>
+            <div class="result-row">
+              <span class="result-tech">→ Дыхание 4-7-8</span>
+              <span class="result-page">стр. 6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-head">
+            <span class="result-range">Есть ответы Г</span>
+            <span class="result-level">Острая тревога</span>
+          </div>
+          <div class="result-card-body">
+            <p class="result-desc">Нужна быстрая физиологическая помощь.</p>
+            <div class="result-row">
+              <span class="result-tech">→ Холодная вода</span>
+              <span class="result-page">стр. 10</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="result-footer">Если тревога не проходит несколько недель — обратитесь к специалисту.</p>
+    </div>
+
+    <!-- ══ СТРАНИЦА 6 — Дыхание 4-7-8 ══ -->
+    <div class="page">
+      <p class="page-label">Страница 6 из 11 · Техника 01</p>
+      <div class="tech-header">
+        <p class="tech-tagline">Быстро снижает пульс · 3–5 минут</p>
+        <div class="tech-title">Дыхание 4-7-8</div>
+      </div>
+      <p class="tech-desc">Техника активирует парасимпатическую нервную систему и переключает тело из режима стресса в режим покоя за несколько минут.</p>
+      <p class="steps-label">Шаги</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">1</span><span class="step-text">Сядьте удобно, спина прямая. Выдохните весь воздух.</span></li>
+        <li class="step"><span class="step-num">2</span><span class="step-text">Медленно вдохните через нос, считая до 4.</span></li>
+        <li class="step"><span class="step-num">3</span><span class="step-text">Задержите дыхание на счёт 7.</span></li>
+        <li class="step"><span class="step-num">4</span><span class="step-text">Медленно выдохните через рот на счёт 8.</span></li>
+        <li class="step"><span class="step-num">5</span><span class="step-text">Повторите цикл 4 раза. Не торопитесь.</span></li>
+      </ul>
+      <div class="tech-footer">
+        <span>Зуева Дарья · Великий Новгород</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 7 — Метод 5-4-3-2-1 ══ -->
+    <div class="page">
+      <p class="page-label">Страница 7 из 11 · Техника 02</p>
+      <div class="tech-header">
+        <p class="tech-tagline">Возвращает в настоящее · 5–7 минут</p>
+        <div class="tech-title">Метод 5-4-3-2-1</div>
+      </div>
+      <p class="tech-desc">Техника заземления через органы чувств. Помогает прервать поток тревожных мыслей и вернуть внимание к реальности здесь и сейчас.</p>
+      <p class="steps-label">Шаги</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">1</span><span class="step-text">Назовите 5 вещей, которые вы ВИДИТЕ вокруг.</span></li>
+        <li class="step"><span class="step-num">2</span><span class="step-text">Назовите 4 вещи, которые вы можете ПОТРОГАТЬ.</span></li>
+        <li class="step"><span class="step-num">3</span><span class="step-text">Назовите 3 звука, которые вы СЛЫШИТЕ.</span></li>
+        <li class="step"><span class="step-num">4</span><span class="step-text">Назовите 2 запаха, которые вы ЧУВСТВУЕТЕ или помните.</span></li>
+        <li class="step"><span class="step-num">5</span><span class="step-text">Назовите 1 вкус, который вы ОЩУЩАЕТЕ сейчас.</span></li>
+      </ul>
+      <div class="tech-footer">
+        <span>Зуева Дарья · Великий Новгород</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 8 — Диафрагмальное дыхание ══ -->
+    <div class="page">
+      <p class="page-label">Страница 8 из 11 · Техника 03</p>
+      <div class="tech-header">
+        <p class="tech-tagline">Успокаивает нервную систему · 2–4 минуты</p>
+        <div class="tech-title">Диафрагмальное дыхание</div>
+      </div>
+      <p class="tech-desc">Глубокое «брюшное» дыхание стимулирует блуждающий нерв и снижает уровень кортизола. Самая простая и доступная техника.</p>
+      <p class="steps-label">Шаги</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">1</span><span class="step-text">Положите одну руку на грудь, другую — на живот.</span></li>
+        <li class="step"><span class="step-num">2</span><span class="step-text">Вдохните через нос — поднимается рука на животе, грудь не двигается.</span></li>
+        <li class="step"><span class="step-num">3</span><span class="step-text">Задержите дыхание на 2–3 секунды.</span></li>
+        <li class="step"><span class="step-num">4</span><span class="step-text">Медленно выдыхайте через сжатые губы 4–6 секунд.</span></li>
+        <li class="step"><span class="step-num">5</span><span class="step-text">Повторите 6–10 раз, фокусируясь на животе.</span></li>
+      </ul>
+      <div class="tech-footer">
+        <span>Зуева Дарья · Великий Новгород</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 9 — Прогрессивная релаксация ══ -->
+    <div class="page">
+      <p class="page-label">Страница 9 из 11 · Техника 04</p>
+      <div class="tech-header">
+        <p class="tech-tagline">Снимает мышечное напряжение · 10–15 минут</p>
+        <div class="tech-title">Прогрессивная релаксация</div>
+      </div>
+      <p class="tech-desc">Поочерёдное напряжение и расслабление групп мышц. Тело расслабляется — тревога отступает. Эффективно при физических симптомах стресса.</p>
+      <p class="steps-label">Шаги</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">1</span><span class="step-text">Лягте или сядьте максимально удобно. Закройте глаза.</span></li>
+        <li class="step"><span class="step-num">2</span><span class="step-text">Ступни: напрягите на 5 секунд, резко отпустите.</span></li>
+        <li class="step"><span class="step-num">3</span><span class="step-text">Продвигайтесь вверх: икры → бёдра → живот → руки → лицо.</span></li>
+        <li class="step"><span class="step-num">4</span><span class="step-text">На каждую группу — 5 с напряжения, 15 с расслабления.</span></li>
+        <li class="step"><span class="step-num">5</span><span class="step-text">Завершите тремя глубокими медленными вдохами.</span></li>
+      </ul>
+      <div class="tech-footer">
+        <span>Зуева Дарья · Великий Новгород</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 10 — Холодная вода ══ -->
+    <div class="page">
+      <p class="page-label">Страница 10 из 11 · Техника 05</p>
+      <div class="tech-header">
+        <p class="tech-tagline">Мгновенный эффект · 1–2 минуты</p>
+        <div class="tech-title">Холодная вода</div>
+      </div>
+      <p class="tech-desc">Погружение лица в холодную воду активирует нырятельный рефлекс — мощный физиологический механизм, который моментально снижает ЧСС.</p>
+      <p class="steps-label">Шаги</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">1</span><span class="step-text">Наберите таз или большую миску с холодной водой (со льдом — лучше).</span></li>
+        <li class="step"><span class="step-num">2</span><span class="step-text">Задержите дыхание и погрузите лицо в воду на 15–30 секунд.</span></li>
+        <li class="step"><span class="step-num">3</span><span class="step-text">Нет миски — умойтесь очень холодной водой или приложите лёд к вискам.</span></li>
+        <li class="step"><span class="step-num">4</span><span class="step-text">Повторите 2–3 раза с небольшим перерывом.</span></li>
+        <li class="step"><span class="step-num">5</span><span class="step-text">После — выпейте стакан воды и посидите спокойно минуту.</span></li>
+      </ul>
+      <div class="tech-footer">
+        <span>Зуева Дарья · Великий Новгород</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <!-- ══ СТРАНИЦА 11 — Письмо тревоге ══ -->
+    <div class="page">
+      <p class="page-label">Страница 11 из 11 · Техника 06</p>
+      <div class="tech-header">
+        <p class="tech-tagline">Структурирует хаос мыслей · 7–10 минут</p>
+        <div class="tech-title">Письмо тревоге</div>
+      </div>
+      <p class="tech-desc">Перенос тревожных мыслей на бумагу снижает их эмоциональный заряд. Мозг перестаёт «жевать» одно и то же по кругу.</p>
+      <p class="steps-label">Шаги</p>
+      <ul class="steps">
+        <li class="step"><span class="step-num">1</span><span class="step-text">Возьмите бумагу и ручку. Телефон — не подходит.</span></li>
+        <li class="step"><span class="step-num">2</span><span class="step-text">Напишите «Я сейчас тревожусь о...» — и пишите без остановки 5 минут.</span></li>
+        <li class="step"><span class="step-num">3</span><span class="step-text">Прочитайте написанное.</span></li>
+        <li class="step"><span class="step-num">4</span><span class="step-text">Обведите кружком то, на что вы реально можете повлиять.</span></li>
+        <li class="step"><span class="step-num">5</span><span class="step-text">Для каждого пункта напишите одно действие, которое можно сделать сегодня.</span></li>
+      </ul>
+      <div class="tech-footer">
+        <span>Зуева Дарья · Великий Новгород</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+
+</body>
+</html>
